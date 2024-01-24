@@ -5,7 +5,8 @@ import time
 backgroundColor = (0, 0, 0)  # global
 primaryColor = (255, 255, 255)  # global
 secondaryColor = (100, 100, 255)  # global
-
+# Create a pointer to the 2.2" LCD frame buffer. Note: No need to ever f.close() it.
+f=open("/dev/fb1","wb")
 
 class view():
     def __init__(self):
@@ -45,9 +46,8 @@ class view():
         self.refresh()
 
     def refresh(self):
-        f=open("/dev/fb1","wb")
+        f.seek(0)
         f.write(self.lcd.convert(16,0).get_buffer())
-        f.close()
         time.sleep(0.05)
 
     def clear(self):
@@ -84,12 +84,15 @@ class view():
         volumeText = self.font.render(str(volume) + "%", True, primaryColor)
         self.lcd.blit(volumeText, (10, 1))
 
-        if chargeStatus:
-            chargeText = self.font.render("Charging", True, primaryColor)
-            self.lcd.blit(chargeText, (self.dispWidth - chargeText.get_width() - 10, 1))
-        else:
-            chargeText = self.font.render(batLevel, True, primaryColor)
-            self.lcd.blit(chargeText, (self.dispWidth - chargeText.get_width() - 10, 1))
+#        if chargeStatus:
+#            chargeText = self.font.render("Charging", True, primaryColor)
+#            self.lcd.blit(chargeText, (self.dispWidth - chargeText.get_width() - 10, 1))
+#        else:
+#            chargeText = self.font.render(batLevel, True, primaryColor)
+#            self.lcd.blit(chargeText, (self.dispWidth - chargeText.get_width() - 10, 1))
+
+        chargeText = self.font.render(batLevel, True, primaryColor)
+        self.lcd.blit(chargeText, (self.dispWidth - chargeText.get_width() - 10, 1))
 
         pygame.draw.line(self.lcd, primaryColor, (0, 20), (self.dispWidth, 20))
 
