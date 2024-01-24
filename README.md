@@ -31,11 +31,11 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>The side-mount pushbutton switches are Digikey part EG4388CT-ND</li>
 <li>The red and green LEDs are Digikey part 1830-1082-1-ND and 1830-1079-1-ND, respectively</li></ul>
 <H2>Instructions</H2>
-<ul><li>Download the OS file "2023-12-05-raspios-bookworm-arm64.img.xz</li>
+<ul><li>Download the OS file "2023-12-05-raspios-bookworm-arm64.img.xz"</li>
 <li>Using rufus-3.22 (or similar), burn the image to a 128GB micro-SD card.</li>
 <li>Assuming you have a fully-assembled PiPod hardware: Connect an HDMI monitor to the Pi Zero 2 W. Also connect a USB expander hub such as the SmartQ
 H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.</li>
-<li>Power-up the Pi Zero and go through the configuration screens. Make sure wifi is enabled and connect to a network. Reboot.</li>
+<li>Power-up the Pi Zero and go through the configuration screens. Make sure wifi is enabled and connected to a network. Reboot.</li>
 <li>Type sudo nano /boot/config.txt and make the following changes:
   <ul>
     <li>un-comment dtparam=spi=on (to turn on the SPI port)</li>
@@ -58,4 +58,13 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
 </li>
 <li>Type the following and verify that snow appears on the PiPod LCD screen:
   <ul><li>while true; do sudo cat /dev/urandom > /dev/fb1; sleep .5; done</li></ul>
+</li>
+<li>Enter the following lines to install required packages:
+  <ul>
+    <li>sudo apt install python3-pygame</li>
+    <li>sudo apt install git</li>
+    <li>sudo apt install python3-vlc</li>
+    <li>sudo apt install python3-alsaaudio</li>
+    <li>sudo apt install python3-taglib</li>
+  </ul>
 </li>
