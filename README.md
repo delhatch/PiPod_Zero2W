@@ -9,7 +9,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>Easy to transfer music files, via SFTP over wifi, from a laptop to the PiPod (using WinSCP, for example.)</li>
 <li>Because a USB breakout hub is used to connect a keyboard & mouse, it is also easy to plug in a USB Flash drive to load or move files.</li></ul>
 <H3>Hardware changes</H3>
-<ul><li>Increase R6 to 3.75 kohm to reduce the battery charging current to 325 mA. This is a 0.28C charge rate (instead of 1C charging) which increases the battery's life.</li>
+<ul><li>Increase R6 to 3.75 kohm to reduce the battery charging current to 325 mA. This is a 0.28C charge rate (instead of 1C charging) which helps to increase the battery's life.</li>
 <li>Increase R9 to 4.7 kohm to reduce the brightness of the green LED</li></ul>
 <H3>Software Changes</H3>
 <ul><li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
