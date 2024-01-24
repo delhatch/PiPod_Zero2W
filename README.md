@@ -15,8 +15,10 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <ul><li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
 <li>Instead of using the pygame.display.update() method to flush the frame buffer to the LCD at /dev/fb1, it is now done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li>
 <li>Fixed an issue where the MP3 file would not appear in the library if the "ALBUM" field was blank. It now inserts the album title "Not Sure" and continues.</li></ul>
+
 <H3>THIS PROJECT IS CURRENTLY UNDER ACTIVE DEVELOPMENT!</H3>
 <p>Lots of things are changing daily as I adapt the software, and what the developer needs to do to make it all work together.</p>
+
 <H2>Hardware Parts</H2>
 <p>You will need to purchse a bare PCB from https://www.pcbway.com/project/shareproject/PiPod___Raspberry_pi_Zero_portable_music_player.html</p>
 <p>Populate it with components as described in the original PiPod project. Some sources for critical components are listed below for convenience:</p>
@@ -30,9 +32,10 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>The small USB connector is Digikey part 609-4616-1-ND</li>
 <li>The side-mount pushbutton switches are Digikey part EG4388CT-ND</li>
 <li>The red and green LEDs are Digikey part 1830-1082-1-ND and 1830-1079-1-ND, respectively</li></ul>
+
 <H2>Instructions</H2>
 <ul><li>Download the OS file "2023-12-05-raspios-bookworm-arm64.img.xz"</li>
-<li>Using rufus-3.22 (or similar), burn the image to a 128GB micro-SD card.</li>
+<li>Using rufus-3.22.exe (or similar), burn the image to a 128GB micro-SD card.</li>
 <li>Assuming you have a fully-assembled PiPod hardware: Connect an HDMI monitor to the Pi Zero 2 W. Also connect a USB expander hub such as the SmartQ
 H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.</li>
 <li>Power-up the Pi Zero and go through the configuration screens. Make sure wifi is enabled and connected to a network. Reboot.</li>
