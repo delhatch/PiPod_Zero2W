@@ -1,5 +1,6 @@
 import pygame
 import os
+import time
 
 backgroundColor = (0, 0, 0)  # global
 primaryColor = (255, 255, 255)  # global
@@ -8,13 +9,16 @@ secondaryColor = (100, 100, 255)  # global
 
 class view():
     def __init__(self):
-        #DRH os.putenv('SDL_FBDEV', '/dev/fb1')  # Route the output to framebuffer 1 (TFT display)
+        os.putenv('SDL_FBDEV', '/dev/fb1')  # Route the output to framebuffer 1 (TFT display)
+        surfaceSize=(320,240)
         pygame.init()
+        self.lcd=pygame.Surface(surfaceSize)
         pygame.font.init()
-        self.lcd = pygame.display.set_mode((320, 240))
+        #self.lcd = pygame.display.set_mode((320, 240))
         pygame.mouse.set_visible(False)
         pygame.key.set_repeat(500, 100)
-        self.dispWidth, self.dispHeight = pygame.display.get_surface().get_size()
+        #self.dispWidth, self.dispHeight = pygame.display.get_surface().get_size()
+        self.dispWidth, self.dispHeight = (320,240)
         self.font = pygame.font.Font("TerminusTTF-4.46.0.ttf", 18)
 
     def update(self, status, menuDict, songMetadata):
@@ -37,7 +41,14 @@ class view():
         else:
             self.listView(menuDict[menuDict["current"]], menuDict["selectedItem"])
 
-        pygame.display.update()
+        #pygame.display.update()
+        self.refresh()
+
+    def refresh(self):
+        f=open("/dev/fb1","wb")
+        f.write(self.lcd.convert(16,0).get_buffer())
+        f.close()
+        time.sleep(0.05)
 
     def clear(self):
         self.lcd.fill(backgroundColor)
@@ -46,7 +57,8 @@ class view():
         self.lcd.fill(backgroundColor)
         text = self.font.render(text, True, primaryColor)
         self.lcd.blit(text, ((self.dispWidth - text.get_width()) / 2, (self.dispHeight - text.get_height()) / 2))
-        pygame.display.flip()
+        #pygame.display.flip()
+        self.refresh()
 
     def listView(self, menu, selectedItem):
         self.clear()

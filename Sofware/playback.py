@@ -6,7 +6,7 @@ import csv
 import taglib
 
 class music():
-    volume = 15
+    volume = 60
     playlist = [["", "", "", ""]]
     currentSongIndex = 0
     
@@ -123,12 +123,20 @@ class music():
                 audiofile = taglib.File(i)
                 tag = audiofile.tags
             except:
+                print("Error parsing tags")
                 pass
             try:
+                # Now check to see if the "ALBUM" field is empty.
+                #    If so, fill it in with "Not Sure"
+                if( tag["ALBUM"] == [] ):
+                    #print("Found an empty ALBUM field")
+                    tag["ALBUM"] = ['Not Sure']
+                    #print(tag["ALBUM"])
                 writer.writerow((i, tag["ARTIST"][0], tag["ALBUM"][0], tag["TITLE"][0]))
-            #DRH except AttributeError:
+            except AttributeError:
+                print("Attribute Error", i)
             except:
-                print(i)
+                print("Unknown writer error", i)
         print("Done")
         file.close()
 
