@@ -1,6 +1,6 @@
 # PiPod_Zero2W
 This project started as a clone of https://github.com/BramRausch/PiPod
-<H3>Motication</H3>
+<H3>Motivation</H3>
 <p>I created this version to:</p>
 <ul><li>Change from the Raspberry Pi Zero to the Pi Zero 2 W.</li>
 <li>To document all of the steps necessary to create the PiPod from scratch, starting with a new Pi Zero 2 W</li></ul>
