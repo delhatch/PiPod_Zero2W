@@ -13,7 +13,8 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>Increase R9 to 4.7 kohm to reduce the brightness of the green LED</li></ul>
 <H3>Software Changes</H3>
 <ul><li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
-<li>Instead of using pygame to flush the frame buffer to the LCD at /dev/fb1, it is done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li></ul>
+<li>Instead of using pygame to flush the frame buffer to the LCD at /dev/fb1, it is done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li>
+<li>Fixed an issue where the MP3 file would not appear in the library if the "ALBUM" field was blank. It now inserts the album title "Not Sure" and continues.</li></ul>
 <H3>THIS PROJECT IS CURRENTLY UNDER ACTIVE DEVELOPMENT!</H3>
 <p>Lots of things are changing daily as I adapt the software, and what the developer needs to do to make it all work together.</p>
 <H2>Hardware Parts</H2>
