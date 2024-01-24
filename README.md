@@ -22,7 +22,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <p>Populate it with components as described in the original PiPod project. Some sources for critical components are listed below for convenience:</p>
 <ul><li>The Pi Zero 2 W is a direct drop-in replacement for the PiPod's original Pi Zero.</li>
 <li>The only source I can find for the 2.2" LCD (Tianma TM022HDH26 that has the ILI9340C/ILI9341 driver IC) is Adafruit, item #1480.</li>
-<li>The LiPo battery measures xxx. One source is yyy.</li>
+<li>The LiPo 1200mAh battery measures 34mm x 62mm x 5mm / 1.3" x 2.4" x 0.2". One source is Adafruit #258.</li>
 <li>The headphone jack is Digikey part CP-SJ2-3573A2-SMT-CT-ND</li>
 <li>The SMPS inductor (L1) is Digikey part 732-2617-1-ND</li>
 <li>The 40-pin connector for the Pi Zero 2 W is Digikey part 609-2231-ND</li>
