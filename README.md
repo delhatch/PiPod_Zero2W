@@ -42,6 +42,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     <li>comment-out the "dtparam=audio=on" line</li>
     <li>add a line: dtoverlay=hifiberry-dac</li>
     <li>un-comment dtparam=i2c_arm=on</li>
+    <li>If you are going to SSH music files into the PiPod, uncomment the SSH line.</li>
     <li>at the bottom of the file, add the lines:</li>
     <ul>
       <li>dtoverlay=fbtft,spi0-0,ili9341,rotate=90</li>
@@ -74,5 +75,19 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
   <ul>
     <li>speaker-test -c2</li>
     <li>If audio is not heard, you may need to go the GUI, right-click on the speaker icon (upper right) and change to the line "snd_rpi_hifiberry_dac"</li>
+  </ul>
+</li>
+<li>Create the directory ~/Music</li>
+<li>Move your music files into this Music directory. You can do this two ways:
+  <ul>
+    <li>Insert a USB Flash stick into the USB hub, and cp the files over.</li>
+    <li>Type "ifconfig" (no quotes) and note the IP address. Use WinSCP to SFTP from a Windows computer to the PiPod.</li>
+  </ul>
+</li>
+<li>The PiPod software needs to know the path to the music files. Edit the file playback.py, around line 104, so that the variable musicPath points to your music directory.</li>
+<li>You should now be able to launch the PiPod software, with everything working.
+  <ul>
+    <li>cd into the directory ~/PiPod_Zero2W/Sofware</li>
+    <li>Type: python3 main.py</li>
   </ul>
 </li>
