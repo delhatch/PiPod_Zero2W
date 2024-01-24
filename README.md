@@ -59,12 +59,20 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
 <li>Type the following and verify that snow appears on the PiPod LCD screen:
   <ul><li>while true; do sudo cat /dev/urandom > /dev/fb1; sleep .5; done</li></ul>
 </li>
-<li>Enter the following lines to install required packages:
+<li>Enter the following lines to install the required packages:
   <ul>
     <li>sudo apt install python3-pygame</li>
     <li>sudo apt install git</li>
     <li>sudo apt install python3-vlc</li>
     <li>sudo apt install python3-alsaaudio</li>
     <li>sudo apt install python3-taglib</li>
+  </ul>
+</li>
+<li>sudo reboot now</li>
+<li>cd ~ then type: git clone https://github.com/delhatch/PiPod_Zero2W.git</li>
+<li>Verify that the audio is working. Plug headphones into the PiPod and type:
+  <ul>
+    <li>speaker-test -c2</li>
+    <li>If audio is not heard, you may need to go the GUI, right-click on the speaker icon (upper right) and change to the line "snd_rpi_hifiberry_dac"</li>
   </ul>
 </li>
