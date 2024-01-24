@@ -31,4 +31,24 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>The side-mount pushbutton switches are Digikey part EG4388CT-ND</li>
 <li>The red and green LEDs are Digikey part 1830-1082-1-ND and 1830-1079-1-ND, respectively</li></ul>
 <H2>Instructions</H2>
-
+<ul><li>Download the OS file "2023-12-05-raspios-bookworm-arm64.img.xz</li>
+<li>Using rufus-3.22 (or similar), burn the image to a 128GB micro-SD card.</li>
+<li>Assuming you have a fully-assembled PiPod hardware: Connect an HDMI monitor to the Pi Zero 2 W. Also connect a USB expander hub such as the SmartQ
+H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.</li>
+<li>Power-up the Pi Zero and go through the configuration screens. Make sure wifi is enabled and connect to a network. Reboot.</li>
+<li>Type sudo nano /boot/config.txt and make the following changes:
+  <ul>
+    <li>un-comment dtparam=spi=on (to turn on the SPI port)</li>
+    <li>comment-out the "dtparam=audio=on" line</li>
+    <li>add a line: dtoverlay=hifiberry-dac</li>
+    <li>un-comment dtparam=i2c_arm=on</li>
+    <li>at the bottom of the file, add the lines:</li>
+    <ul>
+      <li>dtoverlay=fbtft,spi0-0,ili9341,rotate=90</li>
+      <li>dtparam=bgr=on</li>
+      <li>dtparam=reset_pin=25</li>
+      <li>dtparam=dc_pin=24</li>
+      <li>dtparam=speed=32000000</li>
+    </ul>
+  </ul>
+</li>
