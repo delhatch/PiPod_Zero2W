@@ -20,7 +20,8 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <H2>Hardware Parts</H2>
 <p>You will need to buy the bare PCB from https://www.pcbway.com/project/shareproject/PiPod___Raspberry_pi_Zero_portable_music_player.html</p>
 <p>Populate it with components as described in the original PiPod project. Some sources for critical components are listed below for convenience:</p>
-<ul><li>The only source I can find for the 2.2" LCD (Tianma TM022HDH26 that has the ILI9340C/ILI9341 driver IC) is Adafruit, item #1480.</li>
+<ul><li>The Pi Zero 2 W is a direct drop-in replacement for the PiPod's original Pi Zero.</li>
+<li>The only source I can find for the 2.2" LCD (Tianma TM022HDH26 that has the ILI9340C/ILI9341 driver IC) is Adafruit, item #1480.</li>
 <li>The LiPo battery measures xxx. One source is yyy.</li>
 <li>The headphone jack is Digikey part CP-SJ2-3573A2-SMT-CT-ND</li>
 <li>The SMPS inductor (L1) is Digikey part 732-2617-1-ND</li>
