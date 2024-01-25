@@ -2,7 +2,7 @@
 This project started as a clone of https://github.com/BramRausch/PiPod
 <H3>Motivation</H3>
 <p>I created this version to:</p>
-<ul><li>Change from the Raspberry Pi Zero to the Pi Zero 2 W.</li>
+<ul><li>Change from the <b>Raspberry Pi Zero</b> to the <b>Pi Zero 2 W</b>.</li>
 <li>To document all of the steps necessary to create the PiPod from scratch, starting with a new Pi Zero 2 W.</li></ul>
 <H3>Benefits</H3>
 <ul><li>The wifi of the Pi 2 W makes for easy software installation (sudo apt) and updates.</li>
