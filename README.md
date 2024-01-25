@@ -11,13 +11,18 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <H3>Hardware changes</H3>
 <ul><li>Increase R6 to 3.75 kohm to reduce the battery charging current to 325 mA. This is a 0.28C charge rate (instead of 1C charging) which helps to increase the battery's life.</li>
 <li>Increase R9 to 4.7 kohm to reduce the brightness of the green LED</li></ul>
-<H3>Software Changes</H3>
-<ul><li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
-<li>Instead of using the pygame.display.update() method to flush the frame buffer to the LCD at /dev/fb1, it is now done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li>
-<li>Fixed an issue where the MP3 file would not appear in the library if the "ALBUM" field was blank. It now inserts the album title "Not Sure" and continues.</li></ul>
+<H3>Structural Software Changes</H3>
+<ul>
+  <li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
+  <li>Instead of using the pygame.display.update() method to flush the frame buffer to the LCD at /dev/fb1, it is now done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li>
+</ul>
+<H3>Added Features and Minor Bug Fixes</H3>
+<ul>
+  <li>Fixed an issue where the MP3 file would not appear in the library if the "ALBUM" field was blank. It now inserts the album title "Not Sure" and continues.</li>
+</ul>
 
 <H3>THIS PROJECT IS CURRENTLY UNDER ACTIVE DEVELOPMENT!</H3>
-<p>Lots of things are changing daily as I adapt the software, and the Instructions.</p>
+<p>Lots of things are changing daily as I adapt the software, and the flesh out the Instructions.</p>
 
 <H2>Hardware Parts</H2>
 <p>You will need to purchse a bare PCB from https://www.pcbway.com/project/shareproject/PiPod___Raspberry_pi_Zero_portable_music_player.html</p>
