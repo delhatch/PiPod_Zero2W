@@ -5,7 +5,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <ul><li>Change from the <b>Raspberry Pi Zero</b> to the <b>Pi Zero 2 W</b>.</li>
 <li>To document all of the steps necessary to create the PiPod from scratch, starting with a brand new Pi Zero 2 W.</li></ul>
 <H3>Benefits</H3>
-<ul><li>The <b>Pi Zero 2 W</b> has built-in wifi, which makes it easier to install software and updates.</li>
+<ul><li>The <b>Pi Zero 2 W</b> has built-in wifi, which makes it easy to install software and updates.</li>
 <li>Easy to transfer music files, via SFTP over wifi, from a laptop to the PiPod (using WinSCP, for example.)</li>
 <li>Because a USB breakout hub is used to connect a keyboard & mouse, it is also easy to plug in a USB Flash drive to load or move files.</li></ul>
 <H3>Hardware changes</H3>
