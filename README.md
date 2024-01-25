@@ -38,6 +38,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>Using rufus-3.22.exe (or similar), burn the image to a 128GB micro-SD card.</li>
 <li>Assuming you have a fully-assembled PiPod hardware: Connect an HDMI monitor to the Pi Zero 2 W. Also connect a USB expander hub such as the SmartQ
 H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.</li>
+<li>Apply power to the USB connector at the bottom of the PiPod.</li>
 <li>Power-up the Pi Zero and go through the configuration screens. Make sure wifi is enabled and connected to a network. Reboot.</li>
 <li>Type sudo nano /boot/config.txt and make the following changes:
   <ul>
@@ -94,3 +95,4 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     <li>Type: python3 main.py</li>
   </ul>
 </li>
+</ul>
