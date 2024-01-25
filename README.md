@@ -3,7 +3,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <H3>Motivation</H3>
 <p>I created this version to:</p>
 <ul><li>Change from the <b>Raspberry Pi Zero</b> to the <b>Pi Zero 2 W</b>.</li>
-<li>To document all of the steps necessary to create the PiPod from scratch, starting with a new Pi Zero 2 W.</li></ul>
+<li>To document all of the steps necessary to create the PiPod from scratch, starting with a brand new Pi Zero 2 W.</li></ul>
 <H3>Benefits</H3>
 <ul><li>The <b>Pi Zero 2 W</b> has built-in wifi, which makes it easier to install software and updates.</li>
 <li>Easy to transfer music files, via SFTP over wifi, from a laptop to the PiPod (using WinSCP, for example.)</li>
@@ -44,7 +44,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>Assuming you have a fully-assembled PiPod hardware: Connect an HDMI monitor to the Pi Zero 2 W. Also connect a USB expander hub such as the SmartQ
 H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.</li>
 <li>Apply power to the USB connector at the bottom of the PiPod.</li>
-<li>Power-up the Pi Zero and go through the configuration screens. Make sure wifi is enabled and connected to a network. Reboot.</li>
+<li>Power-up the Pi Zero and go through the configuration screens. Create the user "pi" with a password of your choosing. Make sure wifi is enabled and connected to a network. Reboot.</li>
 <li>Type sudo nano /boot/config.txt and make the following changes:
   <ul>
     <li>un-comment dtparam=spi=on (to turn on the SPI port)</li>
@@ -90,10 +90,9 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
 <li>Move your music files into this Music directory. You can do this two ways:
   <ul>
     <li>Insert a USB Flash stick into the USB hub, and cp the files over.</li>
-    <li>Type "ifconfig" (no quotes) and note the IP address. Use WinSCP to SFTP from a Windows computer to the PiPod.</li>
+    <li>Type "ifconfig" (no quotes) and note the IP address. Use the application WinSCP, and use the SFTP protocol, to copy media files from a Windows computer to the PiPod.</li>
   </ul>
 </li>
-<li>The PiPod software needs to know the path to the music files. Edit the file playback.py, around line 104, so that the variable musicPath points to your music directory.</li>
 <li>You should now be able to launch the PiPod software, with everything working.
   <ul>
     <li>cd into the directory ~/PiPod_Zero2W/Sofware</li>
