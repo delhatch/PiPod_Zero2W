@@ -17,7 +17,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>Fixed an issue where the MP3 file would not appear in the library if the "ALBUM" field was blank. It now inserts the album title "Not Sure" and continues.</li></ul>
 
 <H3>THIS PROJECT IS CURRENTLY UNDER ACTIVE DEVELOPMENT!</H3>
-<p>Lots of things are changing daily as I adapt the software, and what the developer needs to do to make it all work together.</p>
+<p>Lots of things are changing daily as I adapt the software, and the Instructions.</p>
 
 <H2>Hardware Parts</H2>
 <p>You will need to purchse a bare PCB from https://www.pcbway.com/project/shareproject/PiPod___Raspberry_pi_Zero_portable_music_player.html</p>
