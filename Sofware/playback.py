@@ -107,7 +107,7 @@ class music():
             for file in files:
                 if file.endswith('.mp3') or file.endswith('.m4a') or file.endswith('.wav') or file.endswith('.wma'):
                     fileList.append(os.path.join(path, file))
-                    print(os.path.join(path, file))
+                    #print(os.path.join(path, file))
         '''
             for f in files:
                 filename = os.path.join(root, f)
@@ -121,22 +121,60 @@ class music():
         for i in fileList:
             try:
                 audiofile = taglib.File(i)
-                tag = audiofile.tags
+                tags = audiofile.tags
             except:
                 print("Error parsing tags")
                 pass
+            # Check to see if the "ARTIST" field is empty.
+            #    If so, copy in the info from the "ALBUMARTIST" field.
             try:
-                # Now check to see if the "ALBUM" field is empty.
-                #    If so, fill it in with "Not Sure"
-                if( tag["ALBUM"] == [] ):
+                if( tags["ARTIST"] == [] ):
+                    # If here, there WAS an ARTIST entry, and it was empty.
+                    #print("Found an empty ARTIST field")
+                    #print(tags["ARTIST"])
+                    tags["ARTIST"] = ['NOT SURE ARTIST']  # Found none of these
+                    #print(tags["ARTIST"])
+            except:
+                # If here, there was no entry for ARTIST. Empty/void/null field.
+                tags["ARTIST"] = ['Not Sure ARTIST']  # Found 26 of these
+            # Check to see if the "ALBUM" field is empty.
+            #    If so, fill it in with "Not Sure"
+            try:
+                if( tags["ALBUM"] == [] ):  # This is true semi-frequently for my MP3 files
+                    #pass
                     #print("Found an empty ALBUM field")
-                    tag["ALBUM"] = ['Not Sure']
-                    #print(tag["ALBUM"])
-                writer.writerow((i, tag["ARTIST"][0], tag["ALBUM"][0], tag["TITLE"][0]))
+                    tags["ALBUM"] = ['NOT SURE ALBUM']  # Found 1635 of these
+                    #print(tags["ALBUM"])
+            except:
+                tags["ALBUM"] = ['Not Sure ALBUM']   # Found 174 of these
+            # Check to see if the "TITLE" field is empty.
+            #    If so, fill it in with "Not Sure"
+            try:
+                if( tags["TITLE"] == [] ):  # Never
+                    #pass
+                    #print("Found an empty TITLE field")
+                    tags["TITLE"] = ['NOT SURE TITLE']  # None of these
+                    #print(tags["ALBUM"])
+            except:
+                tags["TITLE"] = ['Not Sure TITLE'] # Found 41 of these
+            try:
+                writer.writerow((i, tags["ARTIST"][0], tags["ALBUM"][0], tags["TITLE"][0]))
             except AttributeError:
                 print("Attribute Error", i)
             except:
-                print("Unknown writer error", i)
+                print("Unknown write error",i)
+                try:
+                    print(tags["ARTIST"])
+                except:
+                    pass
+                try:
+                    print(tags["ALBUM"])
+                except:
+                    pass
+                try:
+                    print(tags["TITLE"])
+                except:
+                    pass
         print("Done")
         file.close()
 

@@ -12,8 +12,9 @@ view = display.view()
 menu = navigation.menu()
 PiPod = device.PiPod()
 
+# Updating 6700 files takes 50 seconds
 #print("Starting update.")
-music.updateLibrary()  # This creates the info.csv file by reading every .MP3 file metadata.
+#music.updateLibrary()  # This creates the info.csv file by reading every .MP3 file metadata.
 #print("Done with update")
 menu.loadMetadata()   # This reads the info.csv file
 status = PiPod.getStatus()
