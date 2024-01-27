@@ -28,8 +28,6 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <ul>
   <li>If the TITLE, ARTIST, or ALBUM field is empty, fill it in with data scraped from the file name.</li>
 </ul>
-<H3>THIS PROJECT IS CURRENTLY UNDER ACTIVE DEVELOPMENT!</H3>
-<p>Lots of things are changing daily as I adapt the software, and the flesh out the Instructions.</p>
 
 <H2>Hardware Parts</H2>
 <p>You will need to purchse a bare PCB from https://www.pcbway.com/project/shareproject/PiPod___Raspberry_pi_Zero_portable_music_player.html</p>
