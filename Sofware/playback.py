@@ -9,7 +9,7 @@ class music():
     volume = 60
     playlist = [["", "", "", ""]]
     currentSongIndex = 0
-    
+
     def __init__(self):
         self.vlcInstance = vlc.Instance()
         self.player = self.vlcInstance.media_player_new()
@@ -30,7 +30,7 @@ class music():
         if self.player.get_state() == vlc.State.Ended and self.currentSongIndex < len(self.playlist)-1:
             self.currentSongIndex += 1
             self.play()
-        
+
     def loadList(self, songList):
         self.playlist = songList
         self.currentSongIndex = 0
@@ -45,7 +45,7 @@ class music():
         else:
             self.currentSongIndex = newList.index(self.playlist[self.currentSongIndex])
             self.playlist = newList
-        
+
     def play(self):
         #print(currentSong)
         self.player.set_media(self.vlcInstance.media_new_path(self.playlist[self.currentSongIndex][0]))
@@ -121,61 +121,55 @@ class music():
         for i in fileList:
             try:
                 audiofile = taglib.File(i)
-                tags = audiofile.tags
+                song = audiofile.tags
             except:
                 print("Error parsing tags")
-                pass
-            # Check to see if the "ARTIST" field is empty.
+
+            # Check to see if the "ARTIST" field is empty, or does not exist.
             #    If so, copy in the info from the "ALBUMARTIST" field.
             try:
-                if( tags["ARTIST"] == [] ):
+                if( song["ARTIST"] == [] ):
                     # If here, there WAS an ARTIST entry, and it was empty.
-                    #print("Found an empty ARTIST field")
-                    #print(tags["ARTIST"])
-                    tags["ARTIST"] = ['NOT SURE ARTIST']  # Found none of these
-                    #print(tags["ARTIST"])
+                    song["ARTIST"] = ['NOT SURE ARTIST']  # Found none of these
             except:
-                # If here, there was no entry for ARTIST. Empty/void/null field.
-                tags["ARTIST"] = ['Not Sure ARTIST']  # Found 26 of these
-            # Check to see if the "ALBUM" field is empty.
+                # If here, there was no entry for ARTIST. void/null field.
+                song["ARTIST"] = ['Not Sure ARTIST']  # Found 26 of these
+
+            # Check to see if the "ALBUM" field is empty, or does not exist.
             #    If so, fill it in with "Not Sure"
             try:
-                if( tags["ALBUM"] == [] ):  # This is true semi-frequently for my MP3 files
-                    #pass
-                    #print("Found an empty ALBUM field")
+                if( song["ALBUM"] == [] ):
                     tags["ALBUM"] = ['NOT SURE ALBUM']  # Found 1635 of these
-                    #print(tags["ALBUM"])
             except:
-                tags["ALBUM"] = ['Not Sure ALBUM']   # Found 174 of these
-            # Check to see if the "TITLE" field is empty.
+                song["ALBUM"] = ['Not Sure ALBUM']   # Found 174 of these
+
+            # Check to see if the "TITLE" field is empty, or does not exist.
             #    If so, fill it in with "Not Sure"
             try:
-                if( tags["TITLE"] == [] ):  # Never
-                    #pass
-                    #print("Found an empty TITLE field")
-                    tags["TITLE"] = ['NOT SURE TITLE']  # None of these
-                    #print(tags["ALBUM"])
+                if( song["TITLE"] == [] ):
+                    song["TITLE"] = ['NOT SURE TITLE']  # None of these
             except:
-                tags["TITLE"] = ['Not Sure TITLE'] # Found 41 of these
+                song["TITLE"] = ['Not Sure TITLE'] # Found 41 of these
+
+            # At this point, the following writer call should never fail.
             try:
-                writer.writerow((i, tags["ARTIST"][0], tags["ALBUM"][0], tags["TITLE"][0]))
+                writer.writerow((i, song["ARTIST"][0], song["ALBUM"][0], song["TITLE"][0]))
             except AttributeError:
                 print("Attribute Error", i)
             except:
                 print("Unknown write error",i)
                 try:
-                    print(tags["ARTIST"])
+                    print(song["ARTIST"])
                 except:
                     pass
                 try:
-                    print(tags["ALBUM"])
+                    print(song["ALBUM"])
                 except:
                     pass
                 try:
-                    print(tags["TITLE"])
+                    print(song["TITLE"])
                 except:
                     pass
-        print("Done")
         file.close()
-
+        print("Done writing metadata file."
         return 1
