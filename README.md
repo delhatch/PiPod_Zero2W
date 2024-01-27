@@ -16,11 +16,18 @@ This project started as a clone of https://github.com/BramRausch/PiPod
   <li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
   <li>Instead of using the pygame.display.update() method to flush the frame buffer to the LCD at /dev/fb1, it is now done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li>
 </ul>
-<H3>Added Features and Minor Bug Fixes</H3>
+<H3>Bug Fixes</H3>
 <ul>
-  <li>Fixed an issue where the MP3 file would not appear in the library if the "ALBUM" field was blank. It now inserts the album title "Not Sure" and continues.</li>
+  <li>If an MP3 file did not have a TITLE, ARTIST, and ALBUM field, the file would not get registered into info.csv. Patched: "Not Sure" is now written into those fields.</li>
 </ul>
-
+<H3>Known Bugs</H3>
+<ul>
+  <li>None? Well, it works, anyway...</li>
+</ul>
+<H3>Todo list:</H3>
+<ul>
+  <li>If the TITLE, ARTIST, or ALBUM field is empty, fill it in with data scraped from the file name.</li>
+</ul>
 <H3>THIS PROJECT IS CURRENTLY UNDER ACTIVE DEVELOPMENT!</H3>
 <p>Lots of things are changing daily as I adapt the software, and the flesh out the Instructions.</p>
 
