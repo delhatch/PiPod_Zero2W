@@ -24,30 +24,46 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 </ul>
 <H3>Bug Fixes</H3>
 <ul>
-  <li>If an MP3 file did not have a TITLE, ARTIST, and/or ALBUM field, the file would not get registered into info.csv. Now: "Not Sure" is now written into those fields.</li>
+  <li>When using the file metadata, if an MP3 file had an empty TITLE, ARTIST, and/or ALBUM field, the file would not get registered into info.csv. Now: "Not Sure" is now written into those fields.</li>
 </ul>
 <H3>Known Bugs</H3>
 <ul>
   <li>None? Well, it works, anyway...</li>
 </ul>
-<H3>Todo list:</H3>
+<H3>Feature Todo list:</H3>
 <ul>
-  <li>If the TITLE, ARTIST, or ALBUM field is empty, fill it in with data scraped from the file name.</li>
+  <li>Make it easier to scroll a long list of song title (or artists, or album titles).</li>
+  <li>Be able to set a play mode, such as:
+    <ul>
+      <li>Normal (sequential playback of titles/artists/albums)</li>
+      <li>Repeat 1 Song(repeat whatever song is playing)</li>
+      <li>Shuffle (random play of whatever is selected titles/artists/albums)</li>
+    </ul>
+  </li>
+  <li>During playback of a song, enter a song-list "subroutine" (and then return to whatever mode you were in) such as:
+    <ul>
+      <li>Play whatever album this song is from.</li>
+      <li>Play all other songs by this artist.</li>
+    </ul>
+  </li>
+  <li>Ability to delete a music file.</li>
 </ul>
 
 <H2>Hardware Parts</H2>
 <p>You will need to purchse a bare PCB from https://www.pcbway.com/project/shareproject/PiPod___Raspberry_pi_Zero_portable_music_player.html</p>
 <p>Populate it with components as described in the original PiPod project. Some sources for critical components are listed below for convenience:</p>
-<ul><li>The Pi Zero 2 W is a direct drop-in replacement for the PiPod's original Pi Zero.</li>
-<li>The only source I can find for the 2.2" LCD (Tianma TM022HDH26 that has the ILI9340C/ILI9341 driver IC) is Adafruit, item #1480.</li>
-<li>The LiPo 1200mAh battery measures 34mm x 62mm x 5mm / 1.3" x 2.4" x 0.2". One source is Adafruit #258.</li>
-<li>The headphone jack is Digikey part CP-SJ2-3573A2-SMT-CT-ND</li>
-<li>The SMPS inductor (L1) is Digikey part 732-2617-1-ND</li>
-<li>The 40-pin connector for the Pi Zero 2 W is Digikey part 609-2231-ND</li>
-<li>The sliding power switch is Digikey part EG1903-ND</li>
-<li>The small USB connector is Digikey part 609-4616-1-ND</li>
-<li>The side-mount pushbutton switches are Digikey part EG4388CT-ND</li>
-<li>The red and green LEDs are Digikey part 1830-1082-1-ND and 1830-1079-1-ND, respectively</li></ul>
+<ul>
+  <li>The Pi Zero 2 W is a direct drop-in replacement for the PiPod's original Pi Zero.</li>
+  <li>The only source I can find for the 2.2" LCD (Tianma TM022HDH26 that has the ILI9340C/ILI9341 driver IC) is Adafruit, item #1480.</li>
+  <li>The LiPo 1200mAh battery measures 34mm x 62mm x 5mm / 1.3" x 2.4" x 0.2". One source is Adafruit #258.</li>
+  <li>The headphone jack is Digikey part CP-SJ2-3573A2-SMT-CT-ND</li>
+  <li>The SMPS inductor (L1) is Digikey part 732-2617-1-ND</li>
+  <li>The 40-pin connector for the Pi Zero 2 W is Digikey part 609-2231-ND</li>
+  <li>The sliding power switch is Digikey part EG1903-ND</li>
+  <li>The small USB connector is Digikey part 609-4616-1-ND</li>
+  <li>The side-mount pushbutton switches are Digikey part EG4388CT-ND</li>
+  <li>The red and green LEDs are Digikey part 1830-1082-1-ND and 1830-1079-1-ND, respectively</li>
+</ul>
 
 <H2>Instructions</H2>
 <ul><li>Download the OS file "2023-12-05-raspios-bookworm-arm64.img.xz"</li>
