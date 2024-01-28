@@ -1,5 +1,6 @@
 # PiPod_Zero2W
 This project started as a clone of https://github.com/BramRausch/PiPod
+His great write-up can be found at: https://hackaday.io/project/26157-pipod
 <H3>Motivation</H3>
 <p>I created this version to:</p>
 <ul><li>Change from the <b>Raspberry Pi Zero</b> to the <b>Pi Zero 2 W</b>.</li>
