@@ -117,22 +117,13 @@ class music():
                 if file.endswith('.mp3') or file.endswith('.MP3') or file.endswith('.Mp3') or file.endswith('.m4a') or file.endswith('.wav') or file.endswith('.wma'):
                     fileList.append(os.path.join(path, file))
                     #print(os.path.join(path, file))
-        '''
-            for f in files:
-                filename = os.path.join(root, f)
-                if filename.endswith('.mp3'):
-                    fileList.append(filename)
-        '''
+        
         file = open("info.csv", "w", newline="")
         writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 
         for i in fileList:
-            try:
-                audiofile = taglib.File(i)
-                song = audiofile.tags
-            except:
-                print("Error parsing tags")
-
+            audiofile = taglib.File(i)
+            song = audiofile.tags
             if self.UseMeta:  # Metadata source = metadata in the MP3 file.
                 # Check to see if the "ARTIST" field is empty, or does not exist.
                 #    If so, fill it in with "Not Sure"
