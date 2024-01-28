@@ -30,7 +30,7 @@
 </ul>
 <H3>Known Bugs</H3>
 <ul>
-  <li>None? Well, it works, anyway...</li>
+  <li>Selecting "Update library" will do so, but then stops the application. Desired: Return to the "Settings" screen.</li>
 </ul>
 <H3>Feature Todo List</H3>
 <ul>
