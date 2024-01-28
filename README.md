@@ -37,7 +37,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
     <ul>
       <li>Normal (sequential playback of titles/artists/albums)</li>
       <li>Repeat 1 Song(repeat whatever song is playing)</li>
-      <li>Shuffle (random play of whatever is selected titles/artists/albums)</li>
+      <li>Shuffle (random play of whatever is selected: titles/artists/albums)</li>
     </ul>
   </li>
   <li>During playback of a song, enter a song-list "subroutine" (and then return to whatever mode you were in) such as:
