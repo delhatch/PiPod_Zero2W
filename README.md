@@ -35,7 +35,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
   <li>Make it easier to scroll a long list of song title (or artists, or album titles).</li>
   <li>Be able to set a play mode, such as:
     <ul>
-      <li>Normal (sequential playback of titles/artists/albums)</li>
+      <li>Normal (sequential playback of whatever was selected: titles/artists/albums)</li>
       <li>Repeat 1 Song(repeat whatever song is playing)</li>
       <li>Shuffle (random play of whatever is selected: titles/artists/albums)</li>
     </ul>
