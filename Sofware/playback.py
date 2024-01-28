@@ -7,6 +7,8 @@ import taglib
 
 
 class music():
+    UseMeta = False  # If False, use MP3 filename as the source of title/artist metadata.
+                     # If True,  use the metadata inside the MP3 file.
     volume = 60
     playlist = [["", "", "", ""]]
     currentSongIndex = 0
@@ -112,7 +114,7 @@ class music():
 
         for path, dirs, files in os.walk(musicPath):
             for file in files:
-                if file.endswith('.mp3') or file.endswith('.m4a') or file.endswith('.wav') or file.endswith('.wma'):
+                if file.endswith('.mp3') or file.endswith('.MP3') or file.endswith('.Mp3') or file.endswith('.m4a') or file.endswith('.wav') or file.endswith('.wma'):
                     fileList.append(os.path.join(path, file))
                     #print(os.path.join(path, file))
         '''
@@ -132,17 +134,48 @@ class music():
             except:
                 print("Error parsing tags")
 
-            # Check to see if the "ARTIST" field is empty, or does not exist.
-            #    If so, fill it in with "Not Sure"
-            if( 'ARTIST' in song ):
-                if( song['ARTIST'] == [] ):  # Key exists, but points to empty field.
-                    self.ArtistEmptyField += 1
-                    song['ARTIST'] = ['NOT SURE ARTIST']  # Found none of these
+            if self.UseMeta:  # Metadata source = metadata in the MP3 file.
+                # Check to see if the "ARTIST" field is empty, or does not exist.
+                #    If so, fill it in with "Not Sure"
+                if( 'ARTIST' in song ):
+                    if( song['ARTIST'] == [] ):  # Key exists, but points to empty field.
+                        self.ArtistEmptyField += 1
+                        song['ARTIST'] = ['NOT SURE ARTIST']  # Found none of these
+                    else:
+                        pass  # Artist field was filled in. Is legit.
                 else:
-                    pass  # Artist field was filled in. Is legit.
-            else:
-                self.ArtistNoKey += 1
-                song['ARTIST'] = ['Not Sure ARTIST']   # Found 26 of these
+                    self.ArtistNoKey += 1
+                    song['ARTIST'] = ['Not Sure ARTIST']   # Found 26 of these
+
+                # Check to see if the "TITLE" field is empty, or does not exist.
+                #    If so, fill it in with "Not Sure"
+                if( 'TITLE' in song ):
+                    if( song['TITLE'] == [] ):  # Key exists, but points to empty field.
+                        self.TitleEmptyField += 1
+                        song['TITLE'] = ['NOT SURE TITLE']  # Found none of these
+                    else:
+                        pass  # Album field was filled in. Is legit.
+                else:
+                    self.TitleNoKey += 1
+                    song['TITLE'] = ['Not Sure TITLE']   # Found 41 of these
+
+            else:   # Metadata source = the MP3 filename string.
+                # MP3 filenames must look exactly like this:
+                #    "/home/path/user/Thisartist - Thistitle.mp3"
+                artist = i.split(" -")
+                newartist = artist[0].split("/")
+                stringArtist = newartist[4].lstrip()
+                song['ARTIST'] = [stringArtist]
+                try:
+                    title = i.split("- ")
+                except:
+                    print("Error splitting!",i)
+                try:
+                    newtitle = title[1].split(".")
+                except:
+                    print("Error splitting",i)
+                stringTitle = newtitle[0].lstrip()
+                song['TITLE'] = [stringTitle]
 
             # Check to see if the "ALBUM" field is empty, or does not exist.
             #    If so, fill it in with "Not Sure"
@@ -155,18 +188,6 @@ class music():
             else:
                 self.AlbumNoKey += 1
                 song['ALBUM'] = ['Not Sure ALBUM']   # Found 174 of these
-
-            # Check to see if the "TITLE" field is empty, or does not exist.
-            #    If so, fill it in with "Not Sure"
-            if( 'TITLE' in song ):
-                if( song['TITLE'] == [] ):  # Key exists, but points to empty field.
-                    self.TitleEmptyField += 1
-                    song['TITLE'] = ['NOT SURE TITLE']  # Found none of these
-                else:
-                    pass  # Album field was filled in. Is legit.
-            else:
-                self.TitleNoKey += 1
-                song['TITLE'] = ['Not Sure TITLE']   # Found 41 of these
 
             # At this point, the following writer call should never fail.
             try:
