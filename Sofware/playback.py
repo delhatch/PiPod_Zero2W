@@ -5,7 +5,6 @@ import os
 import csv
 import taglib
 
-
 class music():
     UseMeta = False  # If False, use MP3 filename as the source of title/artist metadata.
                      # If True,  use the metadata inside the MP3 file.
