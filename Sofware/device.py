@@ -25,14 +25,14 @@ class PiPod:
         GPIO.setup(26,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 26 = volume up
         def VolUp( channel ):
             #print("Was %s" %channel)
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_u)
-            pygame.event.post(upEvent)
+            volUpEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_u)
+            pygame.event.post(volUpEvent)
         GPIO.add_event_detect(26,GPIO.RISING,callback=VolUp,bouncetime=100)
 
         GPIO.setup(13,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 13 = volume down
         def VolDown( channel ):
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_d)
-            pygame.event.post(upEvent)
+            volDownEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_d)
+            pygame.event.post(volDownEvent)
         GPIO.add_event_detect(13,GPIO.RISING,callback=VolDown,bouncetime=100)
 
         GPIO.setup(20,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 20 = up arrow
@@ -43,33 +43,33 @@ class PiPod:
 
         GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 17 = down arrow
         def DownArrow( channel ):
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_DOWN)
-            pygame.event.post(upEvent)
+            downEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_DOWN)
+            pygame.event.post(downEvent)
         GPIO.add_event_detect(17,GPIO.RISING,callback=DownArrow,bouncetime=100)
 
         GPIO.setup(5,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 5 = left arrow
         def LeftArrow( channel ):
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_LEFT)
-            pygame.event.post(upEvent)
+            leftEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_LEFT)
+            pygame.event.post(leftEvent)
         GPIO.add_event_detect(5,GPIO.RISING,callback=LeftArrow,bouncetime=100)
 
         GPIO.setup(27,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 27 = right arrow
         def RightArrow( channel ):
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT)
-            pygame.event.post(upEvent)
+            rightEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RIGHT)
+            pygame.event.post(rightEvent)
         GPIO.add_event_detect(27,GPIO.RISING,callback=RightArrow,bouncetime=100)
 
         GPIO.setup(22,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 22 = center button
         def Return( channel ):
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RETURN)
-            pygame.event.post(upEvent)
+            returnEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_RETURN)
+            pygame.event.post(returnEvent)
         GPIO.add_event_detect(22,GPIO.RISING,callback=Return,bouncetime=100)
 
         GPIO.setup(6,GPIO.IN, pull_up_down=GPIO.PUD_UP) #GPIO 6 = 'sleep' button
-        def Return( channel ):
-            upEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_ESCAPE)
-            pygame.event.post(upEvent)
-        GPIO.add_event_detect(6,GPIO.RISING,callback=Return,bouncetime=100)
+        def Escape( channel ):
+            escapeEvent = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_ESCAPE)
+            pygame.event.post(escapeEvent)
+        GPIO.add_event_detect(6,GPIO.RISING,callback=Escape,bouncetime=100)
 
         GPIO.setup(23, GPIO.OUT)    # Backlight on/off control
         GPIO.output(23, GPIO.HIGH)
@@ -98,9 +98,9 @@ class PiPod:
             self.sleep = 0
 
     def shutdown(self):
-        os.system("sudo halt")
+        os.system("sudo halt now")
         return 1
 
     def reboot(self):
-        os.system("sudo reboot")
+        os.system("sudo reboot now")
         return 1
