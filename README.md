@@ -9,16 +9,22 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <li>Easy to transfer music files, via SFTP over wifi, from a laptop to the PiPod (using WinSCP, for example.)</li>
 <li>Because a USB breakout hub is used to connect a keyboard & mouse, it is also easy to plug in a USB Flash drive to load or move files.</li></ul>
 <H3>Hardware changes</H3>
-<ul><li>Increase R6 to 3.75 kohm to reduce the battery charging current to 325 mA. This is a 0.28C charge rate (instead of 1C charging) which helps to increase the battery's life.</li>
-<li>Increase R9 to 4.7 kohm to reduce the brightness of the green LED</li></ul>
+<ul>
+  <li>Increase R6 to 3.75 kohm to reduce the battery charging current to 325 mA. This is a 0.28C charge rate (instead of 1C charging) which helps to increase the battery's life.</li>
+  <li>Increase R9 to 4.7 kohm to reduce the brightness of the green LED</li>
+</ul>
 <H3>Structural Software Changes</H3>
 <ul>
   <li>Instead of using Retrogame to link the UI buttons to the pygame event que, I use a callback function (triggered by the GPIO change) that directly posts an event to the pygame event que. (See device.py)</li>
   <li>Instead of using the pygame.display.update() method to flush the frame buffer to the LCD at /dev/fb1, it is now done "manually." (See the refresh() method in display.py) This allows you to simultaneously have the Pi 2 W HDMI output connected to a large monitor, while still running the PiPod software updating its small LCD.</li>
 </ul>
+<H3>Minor Feature Additions</H3>
+<ul>
+  <li>Added the ability to pull the "song title" and "artist name" from the MP3 filename. Can still pull this metadata from the file if desired; set "UseMeta = True" in playback.py.</li>
+</ul>
 <H3>Bug Fixes</H3>
 <ul>
-  <li>If an MP3 file did not have a TITLE, ARTIST, and ALBUM field, the file would not get registered into info.csv. Patched: "Not Sure" is now written into those fields.</li>
+  <li>If an MP3 file did not have a TITLE, ARTIST, and/or ALBUM field, the file would not get registered into info.csv. Now: "Not Sure" is now written into those fields.</li>
 </ul>
 <H3>Known Bugs</H3>
 <ul>
