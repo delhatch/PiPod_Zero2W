@@ -30,7 +30,7 @@ This project started as a clone of https://github.com/BramRausch/PiPod
 <ul>
   <li>None? Well, it works, anyway...</li>
 </ul>
-<H3>Feature Todo list:</H3>
+<H3>Feature Todo List</H3>
 <ul>
   <li>Make it easier to scroll a long list of song title (or artists, or album titles).</li>
   <li>Be able to set a play mode, such as:
