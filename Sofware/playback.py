@@ -203,8 +203,9 @@ class music():
         print("Done writing metadata file.")
         print("AlbumNoKey = ", self.AlbumNoKey)
         print("AlbumEmptyField = ", self.AlbumEmptyField)
-        print("ArtistNoKey = ", self.ArtistNoKey)
-        print("ArtistEmptyField = ", self.ArtistEmptyField)
-        print("TitleNoKey = ", self.TitleNoKey)
-        print("TitleEmptyField = ", self.TitleEmptyField)
+        if self.UseMeta:
+            print("ArtistNoKey = ", self.ArtistNoKey)
+            print("ArtistEmptyField = ", self.ArtistEmptyField)
+            print("TitleNoKey = ", self.TitleNoKey)
+            print("TitleEmptyField = ", self.TitleEmptyField)
         return 1
