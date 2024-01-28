@@ -126,7 +126,6 @@ class music():
         file = open("info.csv", "w", newline="")
         writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 
-        # print("Saving metadate")
         for i in fileList:
             try:
                 audiofile = taglib.File(i)
@@ -192,19 +191,11 @@ class music():
             # At this point, the following writer call should never fail.
             try:
                 writer.writerow((i, song["ARTIST"][0], song["ALBUM"][0], song["TITLE"][0]))
-            except AttributeError:
-                print("Attribute Error", i)
             except:
                 print("Unknown write error",i)
                 try:
                     print(song["ARTIST"])
-                except:
-                    pass
-                try:
                     print(song["ALBUM"])
-                except:
-                    pass
-                try:
                     print(song["TITLE"])
                 except:
                     pass
