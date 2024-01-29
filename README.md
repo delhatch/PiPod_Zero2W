@@ -49,7 +49,7 @@
     </ul>
   </li>
   <li>Ability to delete a music file.</li>
-  <li>Add an audio equalizer (use the VLC equalizer method).</li>
+  <li>Add an interface to adjust the audio equalizer.</li>
 </ul>
 
 <H2>Hardware Parts</H2>
