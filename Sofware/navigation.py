@@ -11,7 +11,7 @@ class menu():
         "Tracks": [],
         "list": [],
         "Queue": [],
-        "Settings": ["Sleep", "Shutdown", "Reboot", "Update library"],
+        "Settings": ["Turn EQ On","Turn EQ Off","Sleep", "Shutdown", "Reboot", "Update library"],
         "current": "musicController",
         "history": [],
     }
@@ -105,6 +105,10 @@ class menu():
                 return "shutdown"
             elif self.menuDict["Settings"][self.menuDict["selectedItem"]] == "Reboot":
                 return "reboot"
+            elif self.menuDict["Settings"][self.menuDict["selectedItem"]] == "Turn EQ On":
+                return "EQOn"
+            elif self.menuDict["Settings"][self.menuDict["selectedItem"]] == "Turn EQ Off":
+                return "EQOff"
 
         else:
             if self.menuDict[self.menuDict["current"]]:  # check if empty

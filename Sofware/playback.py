@@ -5,12 +5,16 @@ import os
 import csv
 import taglib
 
+MY_EQ = [10,8,3,0,0,0,0,0,7,10]
+eqFreqs = []
+
 class music():
     UseMeta = False  # If False, use MP3 filename as the source of title/artist metadata.
                      # If True,  use the metadata inside the MP3 file.
     volume = 60
     playlist = [["", "", "", ""]]
     currentSongIndex = 0
+    flagEQ = False
     AlbumNoKey = 0
     AlbumEmptyField = 0
     ArtistNoKey = 0
@@ -19,10 +23,36 @@ class music():
     TitleEmptyField = 0
 
     def __init__(self):
-        self.vlcInstance = vlc.Instance()
+        self.vlcInstance = vlc.Instance('--no-video')
         self.player = self.vlcInstance.media_player_new()
         self.alsa = alsaaudio.Mixer(alsaaudio.mixers()[0])
         self.alsa.setvolume(self.volume)
+        # Setup Audio Equalizer
+        self.eq = vlc.AudioEqualizer()
+        bandCount = vlc.libvlc_audio_equalizer_get_band_count()  # Returns: 10
+        eqAmps = MY_EQ
+        for bandIndex in range(bandCount):
+            amp = eqAmps[bandIndex]
+            self.eq.set_amp_at_index(amp, bandIndex)
+            eqFreqs.append(vlc.libvlc_audio_equalizer_get_band_frequency(bandIndex))
+        print(f'Freq: {" ".join(map(str, eqFreqs))}')
+        print(f'Amp: {" ".join(map(str, eqAmps))}')
+
+    def enableEQ(self):
+        if self.flagEQ:
+            pass   # Do nothing if EQ already enabled.
+        else:
+            self.flagEQ = True
+            self.player.set_equalizer(self.eq)
+        return 1
+
+    def disableEQ(self):
+        if self.flagEQ:
+            self.flagEQ = False
+            self.player.set_equalizer(None)
+        else:
+            pass   # Do nothing if EQ already disabled.
+        return 1
 
     def getStatus(self):
         status = {
@@ -116,7 +146,7 @@ class music():
                 if file.endswith('.mp3') or file.endswith('.MP3') or file.endswith('.Mp3') or file.endswith('.m4a') or file.endswith('.wav') or file.endswith('.wma'):
                     fileList.append(os.path.join(path, file))
                     #print(os.path.join(path, file))
-        
+
         file = open("info.csv", "w", newline="")
         writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 

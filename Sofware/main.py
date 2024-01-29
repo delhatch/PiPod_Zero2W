@@ -8,6 +8,7 @@ import RPi.GPIO as GPIO
 
 done = False
 music = playback.music()
+music.enableEQ()
 view = display.view()
 menu = navigation.menu()
 PiPod = device.PiPod()
@@ -102,6 +103,11 @@ while not done:
                             menu.menuDict["Queue"] = []
                         else:
                             music.playAtIndex(menu.menuDict["selectedItem"]-1)
+                    elif action == "EQOn":
+                        music.enableEQ()
+                    elif action == "EQOff":
+                        music.disableEQ()
+
         if event.type  == displayUpdate:
             status = PiPod.getStatus()         # Reads battery voltage, gets "status[2]" = backlight on/off
             songMetadata = music.getStatus()   # Get song length, how far in, song info, vol, playlist
