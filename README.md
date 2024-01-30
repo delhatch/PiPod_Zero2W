@@ -23,6 +23,7 @@
 <H3>Minor Feature Additions</H3>
 <ul>
   <li>Added the ability to pull the "song title" and "artist name" from the MP3 filename. Can still pull this metadata from the file if desired; set "UseMeta = True" in playback.py.</li>
+  <li>Added an audio equalizer, with the ability to turn it on and off.</li>
 </ul>
 <H3>Bug Fixes</H3>
 <ul>
