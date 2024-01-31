@@ -28,6 +28,7 @@
 <H3>Bug Fixes</H3>
 <ul>
   <li>When using the file metadata, if an MP3 file had an empty TITLE, ARTIST, and/or ALBUM field, the file would not get registered into info.csv. Now: "Not Sure" is now written into those fields.</li>
+  <li>When trying to select a Track, or Artist/Album from the list of Tracks/Artists/Albums, if you used the Right Arrow key, it would fail and stop the application. Now: Fixed.</li>
 </ul>
 <H3>Known Bugs</H3>
 <ul>
