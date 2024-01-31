@@ -42,7 +42,7 @@ class menu():
 
     def right(self):
         if self.menuDict["current"] == "list" or self.menuDict["current"] == "Tracks":  # move selected item to queue
-            self.menuDict["Queue"].append(menu[menu["current"]][self.menuDict["selectedItem"]])
+            self.menuDict["Queue"].append(self.menuDict[self.menuDict["current"]][self.menuDict["selectedItem"]])
         elif self.menuDict["current"] == "Artists":  # move selected artist to queue
             for item in self.menuDict["Tracks"]:
                 if item[1] == self.menuDict["Artists"][self.menuDict["selectedItem"]]:
