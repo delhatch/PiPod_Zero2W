@@ -62,7 +62,7 @@
   <li>One source for the 2.2" LCD (Tianma TM022HDH26 that has the ILI9340C/ILI9341 driver IC) is Adafruit, item #1480 ($25).</li>
   <ul>
     <li>Look for the description "2.2 inch TFT LCD 240x320 ILI9341" on eBay</li>
-    <li>I purchased the proper display from both "ecdiystore" ($21) and "satisfyelectronics" ($18)</li>
+    <li>I also purchased (Feb 2024) the proper display from both "ecdiystore" ($21) and "satisfyelectronics" ($18)</li>
     <li>(Or contact me -- I have extras.)</li>
   </ul>
   <li>The LiPo 1200mAh battery measures 34mm x 62mm x 5mm / 1.3" x 2.4" x 0.2". One source is Adafruit #258.</li>
