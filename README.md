@@ -116,7 +116,15 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
   </ul>
 </li>
 <li>sudo reboot now</li>
-<li>cd ~ then type: git clone https://github.com/delhatch/PiPod_Zero2W.git</li>
+<li>Install the Adafruit GPIO library:</li>
+  <ul>
+    <li>cd ~/ </li>
+    <li>sudo apt install build-essential python-pip python-dev python-smbus git</li>
+    <li>git clone https://github.com/adafruit/Adafruit_Python_GPIO.git</li>
+    <li>cd Adafruit_Python_GPIO</li>
+    <li>sudo python3 setup.py install</li>
+  </ul>
+<li>cd ~/ then type: git clone https://github.com/delhatch/PiPod_Zero2W.git</li>
 <li>Verify that the audio is working. Plug headphones into the PiPod and type:
   <ul>
     <li>speaker-test -c2</li>
@@ -136,7 +144,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     <li>Type: python3 main.py</li>
   </ul>
 </li>
-<li>To have the PiPod autorun the player app after a power-on cycle:
+<li>To have the PiPod automatically run the player app after a power-on cycle:
   <ul>
     <li>Copy the pipod.service file into the folder ~/.config/systemd/user/ </li>
     <li>Copy the launch.sh file into the folder ~/ </li>
