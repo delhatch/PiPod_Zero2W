@@ -136,7 +136,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     <li>Type: python3 main.py</li>
   </ul>
 </li>
-<li>To have the PiPod software autorun after a power-on cycle:
+<li>To have the PiPod autorun the player app after a power-on cycle:
   <ul>
     <li>Copy the pipod.service file into the folder ~/.config/systemd/user/ </li>
     <li>Copy the launch.sh file into the folder ~/ </li>
