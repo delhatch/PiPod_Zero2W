@@ -140,7 +140,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
   <ul>
     <li>Copy the pipod.service file into the folder ~/.config/systemd/user/ </li>
     <li>Copy the launch.sh file into the folder ~/ </li>
-    <li>Copy the global.py file into the folder ~/PiPod/Sofware/ </li>
+    <li>Copy the global.py file into the folder ~/PiPod_Zero2W/Sofware/ </li>
     <li>To activate the pipod.service file, at the prompt, type: systemctl --user enable pipod.service </li>
     <li>Reboot. If there are problems, type: systemctl --user status pipod.service </li>
   </ul>
