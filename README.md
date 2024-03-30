@@ -172,7 +172,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
       <ul>
         <li>Prior to power-on, plug the HDMI monitor into the HDMI port.</li>
         <li>Boot the PiPod normally.</li>
-        <li>After the graphical UI appears, open a terminal window and type "ps -A | grep "python"
+        <li>After the graphical UI appears, open a terminal window and type: ps -A | grep "python"
           <ul>
             <li>You will see that the PiPod software has started running. But nothing appears on any display.</li>
           </ul>
