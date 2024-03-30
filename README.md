@@ -150,12 +150,13 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     <li>Copy the launch.sh file into the home folder ~/ </li>
     <li>Copy the global.py file into the folder ~/PiPod_Zero2W/Sofware/ </li>
     <li>To activate the pipod.service file, at the prompt, type: systemctl --user enable pipod.service </li>
+    <li>Make the changes to the display.py file as described in the NOTE below.
     <li>Reboot. If there are problems, type: systemctl --user status pipod.service </li>
   </ul>
 </li>
 <li>NOTE: There are 2 configurations for running the PiPod, with an HDMI monitor attached, and without (stand-alone mode). Refer to the file "display.py" for the minor code changes for each mode:
   <ul>
-    <li>Development Mode. An HDMI monitor is attached to the PiPod. You develop software, and see the code properly running on the LCD display.</li>
+    <li>Development Mode. An HDMI monitor is attached to the PiPod. You develop software, and see the PiPod code properly running on the LCD display.</li>
     <ul>
       <li>In this case, the line f=open("/dev/fb1","wb") is appropriate.</li>
       <li>Also, the line os.putenv('SDL_FBDEV', '/dev/fb1') is appropriate</li>
