@@ -151,7 +151,19 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     <li>Copy the global.py file into the folder ~/PiPod_Zero2W/Sofware/ </li>
     <li>To activate the pipod.service file, at the prompt, type: systemctl --user enable pipod.service </li>
     <li>Reboot. If there are problems, type: systemctl --user status pipod.service </li>
-    <li>FATAL PROBLEM -- Works great with HDMI monitor attached. Does not work in stand-alone mode (power-up on battery power, with everything disconnected).
   </ul>
+</li>
+<li>NOTE: There are 2 configurations for running the PiPod, with an HDMI monitor attached, and without (stand-alone mode). Refer to the file "display.py" for the minor code changes for each mode:
+  <ul>
+    <li>Development Mode. An HDMI monitor is attached to the PiPod. You develop software, and see the code properly running on the LCD display.</li>
+    <ul>
+      <li>In this case, the line f=open("/dev/fb1","wb") is appropriate.</li>
+      <li>Also, the line os.putenv('SDL_FBDEV', '/dev/fb1') is appropriate</li>
+    </ul>
+    <li>Standalone Mode. This is where nothing is attached to the PiPod except headphones. This is the usual MP3 player mode.</li>
+    <ul>
+      <li>In this case, change the line f=open("/dev/fb1","wb") to be f=open("/dev/fb0","wb")</li>
+      <li>Also, change the line os.putenv('SDL_FBDEV', '/dev/fb1') to be os.putenv('SDL_FBDEV', '/dev/fb0')</li>
+    </ul>
 </li>
 </ul>
