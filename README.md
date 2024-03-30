@@ -119,7 +119,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
 <li>Install the Adafruit GPIO library:</li>
   <ul>
     <li>cd ~/ </li>
-    <li>sudo apt install build-essential python-pip python-dev python-smbus git</li>
+    <li>sudo apt install build-essential python3-pip python3-dev python3-smbus git</li>
     <li>git clone https://github.com/adafruit/Adafruit_Python_GPIO.git</li>
     <li>cd Adafruit_Python_GPIO</li>
     <li>sudo python3 setup.py install</li>
