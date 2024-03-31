@@ -128,7 +128,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
 <li>cd ~/ then type: git clone https://github.com/delhatch/PiPod_Zero2W.git</li>
 <li>OPTION: To run the /delhatch/PiPod version of the software User Interface, do the following:
   <ul>
-    <li>git clone https://github.com/adafruit/Adafruit_Python_GPIO.git</li>
+    <li>git clone https://github.com/delhatch/PiPod.git</li>
     <li>cd PiPod</li>
     <li>cp *.py ../PiPod_Zero2W/Sofware/.</li>
     <li>cd ~/</li>
