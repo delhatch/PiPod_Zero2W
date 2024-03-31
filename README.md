@@ -99,6 +99,7 @@ H302S to the Pi Zero usb connector. Connect a USB keyboard and mouse to the hub.
     </ul>
   </ul>
 </li>
+<li>Turn on wi-fi, using either the icon in the upper right, or via: sudo raspi-config, option 1.</li>
 <li>sudo reboot</li>
 <li>Verify that the new frame buffer has been created:
   <ul><li>cd to /dev, do ls and verify that there is a /dev/fb1 entry.</li></ul>
