@@ -67,7 +67,7 @@
   </ul>
   <li>The LiPo 1200mAh battery measures 34mm x 62mm x 5mm / 1.3" x 2.4" x 0.2". One source is Adafruit #258.</li>
   <li>The headphone jack is Digikey part CP-SJ2-3573A2-SMT-CT-ND</li>
-  <li>The SMPS inductor (L1) is Digikey part 732-2617-1-ND</li>
+  <li>The SMPS inductor (L1) is Monolithic's MPL-SE4030-6R8, or Digikey part 1589-MPL-SE4030-6R8CT-ND</li>
   <li>The 40-pin connector for the Pi Zero 2 W is Digikey part 609-2231-ND</li>
   <li>The sliding power switch is Digikey part EG1903-ND</li>
   <li>The small USB connector is Digikey part 609-4616-1-ND</li>
