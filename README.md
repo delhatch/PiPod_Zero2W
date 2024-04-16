@@ -70,6 +70,7 @@
   <li>The SMPS inductor (L1) is Monolithic's MPL-SE4030-6R8, or Digikey part 1589-MPL-SE4030-6R8CT-ND</li>
   <li>The 40-pin connector for the Pi Zero 2 W is Digikey part 609-2231-ND</li>
   <li>The sliding power switch is Digikey part EG1903-ND</li>
+  <li>The push-botton switches are Digikey part EG2531CT-ND</li>
   <li>The small USB connector is Digikey part 609-4616-1-ND</li>
   <li>The side-mount pushbutton switches are Digikey part EG4388CT-ND</li>
   <li>The red and green LEDs are Digikey part 1830-1082-1-ND and 1830-1079-1-ND, respectively</li>
